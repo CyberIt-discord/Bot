@@ -1,9 +1,6 @@
 module.exports = {
 	name: 'guildMemberAdd',
 	async execute(member) {
-		const { MessageEmbed } = require('discord.js');
-		const exampleEmbed = new MessageEmbed()
-			.setTitle(`Bienvenue ${member.user.tag}`);
-		member.guild.channels.cache.get(process.env.DISCORD_WELCOME_CHANNEL_ID).send({ embeds: [exampleEmbed] });
+		member.guild.channels.cache.get(process.env.DISCORD_WELCOME_CHANNEL_ID).send(`Bienvenue ${member.user.username} dans le serveur ${member.guild.name} vous devez avoir lu est approuvé les regles ce trouvant dans ${member.guild.channels.cache.get(process.env.DISCORD_RULES_CHANNEL_ID).toString()}`);
 	},
 };
